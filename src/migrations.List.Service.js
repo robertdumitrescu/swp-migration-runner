@@ -13,7 +13,8 @@ class MigrationsListService {
         let migrations = await GenericFilesHelper.listFilesAndDetails(path);
         migrations = await MigrationsListService.computeNames(migrations);
         migrations = MigrationsListService.sortChronologically(migrations);
-        MigrationsListService.display(migrations);
+
+        return migrations;
     }
 
     static async computeNames(migrations) {

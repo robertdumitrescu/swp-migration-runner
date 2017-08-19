@@ -11,13 +11,14 @@ const operation = GenericTerminalHelper.getTerminalArgumentValue("o");
 if(operation === "list"){
 
     const migrationsLocation = GenericTerminalHelper.getTerminalArgumentValue("ml");
-    const migrationsLocationPresent = fileSystem.existsSync(migrationsLocation);
 
-    // if(!migrationsLocationPresent){
-    //     throw Error("The migrations location doesn't exist or the script doesn't have access to it");
-    // }
+    MigrationsListService.getMigrations(migrationsLocation)
+        .then(function (migrations) {
+            migrations = MigrationsListService.sortChronologically(migrations);
+            MigrationsListService.display(migrations);
+        });
 
-    MigrationsListService.getMigrations(migrationsLocation);
+} else if (operation === "run") {
 
 }
 

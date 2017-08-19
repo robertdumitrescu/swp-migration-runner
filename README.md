@@ -2,6 +2,12 @@
 ## Overview
 The purpose of this project is to help developers that are working on old projects or projects where an ORM is not suitable (integrations with Cloud databases or ESearch caching, etc) to be able to run and see the project migrations in an easy and understandable manner.
 
+### What's this?
+A easy way to run migrations and visualize migrations written manually.
+
+### What is not:
+A proof of coding skills. A project that I'm commited to maintain till I get old.
+
 ## CLI options
 ```
 - o - Operation.
@@ -16,10 +22,22 @@ The purpose of this project is to help developers that are working on old projec
 
 ### List migrations
 
-![GitHub Logo](/statics/images/migrations-listing-jetbrains.png)
-Format: ![Alt Text](url)
+Using the following command syntax you can easily get all the migrations related to a project:
 
-### Run migrations - Forward or Backwards
+```
+node index.js o=list ml=/home/robert/gitRepos/PROJECT/sql/migrations/*
+```
+
+And the output of that looks like this:
+
+Migrations listing in JetBrains products
+![migrations-listing-jetbrains](/statics/images/migrations-listing-jetbrains.png)
+
+Migrations listing in Linux Terminator
+![migrations-listing-terminator](/statics/images/migrations-listing-terminator.png)
+
+
+### Run migrations - Forward or Backwards - @TODO
 
 ## Nice to haves - will be implemented in the future
 - when displaying the migrations to check as well if the up.sql (or rollForward.sql) is present and to be displayed in a column as boolean

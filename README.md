@@ -16,6 +16,9 @@ The purpose of this project is to help developers that are working on old projec
 
 ### List migrations
 
+![GitHub Logo](/statics/images/migrations-listing-jetbrains.png)
+Format: ![Alt Text](url)
+
 ### Run migrations - Forward or Backwards
 
 ## Nice to haves - will be implemented in the future

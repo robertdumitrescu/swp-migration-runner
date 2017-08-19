@@ -1,9 +1,5 @@
 'use strict';
 
-const fileSystem = require('fs');
-const Path = require('path');
-const util = require('util');
-const q = require('q');
 const Moment = require('moment');
 const Lodash = require('lodash');
 const Chalk = require('chalk');
@@ -50,12 +46,12 @@ class MigrationsListService {
 
         for (let mi = 0; mi < migrations.length; mi++) {
             console.log(
-            Chalk.green('|  ' + migrations[mi].migrationDate + '  ') +
-            Chalk.blueBright('|    ' + migrations[mi].attempt + '    ') +
-            Chalk.white('|   ' + migrations[mi].name + '   ') +
-            Chalk.magenta('|     ' + migrations[mi].permission + '      ') +
-            Chalk.yellow('|       ' + migrations[mi].filesCount + '     ') +
-            Chalk.red('|  ' + migrations[mi].readableSize + ' ')
+                Chalk.green('|  ' + migrations[mi].migrationDate + '  ') +
+                Chalk.blueBright('|    ' + migrations[mi].attempt + '    ') +
+                Chalk.white('|   ' + migrations[mi].name + '   ') +
+                Chalk.magenta('|     ' + migrations[mi].permission + '      ') +
+                Chalk.yellow('|       ' + migrations[mi].filesCount + '     ') +
+                Chalk.red('|  ' + migrations[mi].readableSize + ' ')
             );
         }
     }

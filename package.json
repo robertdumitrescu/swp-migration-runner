@@ -1,0 +1,26 @@
+{
+  "name": "swp-migration-runner",
+  "version": "1.0.0",
+  "description": "migration runner",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robertdumitrescu/swp-migration-runner.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robertdumitrescu/swp-migration-runner/issues"
+  },
+  "homepage": "https://github.com/robertdumitrescu/swp-migration-runner#readme",
+  "dependencies": {
+    "localpkg-generic-helper": "git@github.com:robertdumitrescu/localPKG-generic-helper.git"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0",
+    "q": "^1.4.1"
+  }
+}

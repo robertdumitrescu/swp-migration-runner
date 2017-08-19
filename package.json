@@ -17,7 +17,10 @@
   },
   "homepage": "https://github.com/robertdumitrescu/swp-migration-runner#readme",
   "dependencies": {
-    "localpkg-generic-helper": "git@github.com:robertdumitrescu/localPKG-generic-helper.git"
+    "chalk": "^2.1.0",
+    "localpkg-generic-helper": "git+ssh://git@github.com/robertdumitrescu/localPKG-generic-helper.git",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1"
   },
   "devDependencies": {
     "nodemon": "^1.11.0",

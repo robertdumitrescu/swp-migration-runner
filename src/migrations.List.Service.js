@@ -1,39 +1,63 @@
 'use strict';
 
 const fileSystem = require('fs');
+const Path = require('path');
 const util = require('util');
 const q = require('q');
+const Moment = require('moment');
+const Lodash = require('lodash');
+const Chalk = require('chalk');
 
 const GenericFilesHelper = require('localpkg-generic-helper').genericFilesHelper;
 
 class MigrationsListService {
 
-    static async getMigrations(path){
+    static async getMigrations(path) {
 
-        let migrations = await GenericFilesHelper.listFiles(path, {});
-        console.log(migrations);
-        console.log(await GenericFilesHelper.getDirectoryMetaData(migrations[0]));
-        console.log(await GenericFilesHelper.getFileMetaData(migrations[0]));
-        console.log(await MigrationsListService.getFileStats(migrations[0]));
+        let migrations = await GenericFilesHelper.listFilesAndDetails(path);
+        migrations = await MigrationsListService.computeNames(migrations);
+        migrations = MigrationsListService.sortChronologically(migrations);
+        MigrationsListService.display(migrations);
     }
 
-    /**
-     * @TODO To be moved in FileHelper
-     */
-    static getFileStats(path){
-        let deferred = q.defer();
-            fileSystem.stat(path, function (error, stats) {
-                if(error) {
-                    deferred.reject(error);
-                } else {
-                    deferred.resolve(stats);
-                }
-            });
-        return deferred.promise;
+    static async computeNames(migrations) {
+        for (let mi = 0; mi < migrations.length; mi++) {
+
+            let nameComponents = migrations[mi].name.split("_");
+            let migrationDate = Moment(nameComponents[0], 'DD-MM-YYYY');
+
+            migrations[mi].migrationDate = migrationDate.format('DD-MM-YYYY');
+            migrations[mi].migrationDateTimestamp = migrationDate.unix();
+            migrations[mi].attempt = parseInt(nameComponents[1]);
+        }
+
+        return migrations;
     }
 
-    static async computeMigrationsNames(){
+    static sortChronologically(migrations) {
+        return Lodash.orderBy(migrations, ['migrationDateTimestamp', 'attempt'], ['asc', 'asc']);
+    }
 
+    static display(migrations) {
+        console.log(
+            Chalk.green("|     Date     ") +
+            Chalk.blueBright("| Attempt ") +
+            Chalk.white("|        Name        ") +
+            Chalk.magenta("|     Permissions     ") +
+            Chalk.yellow("| Files count ") +
+            Chalk.red("|   Size   ")
+        );
+
+        for (let mi = 0; mi < migrations.length; mi++) {
+            console.log(
+            Chalk.green('|  ' + migrations[mi].migrationDate + '  ') +
+            Chalk.blueBright('|    ' + migrations[mi].attempt + '    ') +
+            Chalk.white('|   ' + migrations[mi].name + '   ') +
+            Chalk.magenta('|     ' + migrations[mi].permission + '      ') +
+            Chalk.yellow('|       ' + migrations[mi].filesCount + '     ') +
+            Chalk.red('|  ' + migrations[mi].readableSize + ' ')
+            );
+        }
     }
 
 }

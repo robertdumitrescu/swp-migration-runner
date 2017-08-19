@@ -4,13 +4,18 @@ The purpose of this project is to help developers that are working on old projec
 
 ## CLI options
 ```
-- o - Operation. Available options: 'list' and 'run'
+- o - Operation.
+    -- list
+    -- run
 - ml - Migrations Location. Basically the path to the migrations directories
-- d - Direction. The direction in which the migrations will be ran. Available options: 'forward' and 'backward'
+- d - Direction. The direction in which the migrations will be ran.
+    -- forward
+    -- backward
 ```
 ## Features
 
 ### List migrations
+
 
 ### Run migrations - Forward or Backwards
 

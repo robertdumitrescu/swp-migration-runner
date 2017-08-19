@@ -16,7 +16,6 @@ The purpose of this project is to help developers that are working on old projec
 
 ### List migrations
 
-
 ### Run migrations - Forward or Backwards
 
 ## Nice to haves - will be implemented in the future

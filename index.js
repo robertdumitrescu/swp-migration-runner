@@ -1,6 +1,7 @@
 "use strict";
 
 const fileSystem = require('fs');
+const Chalk = require('chalk');
 
 const MigrationsListService = require('./src/migrations.List.Service');
 const GenericTerminalHelper = require('localpkg-generic-helper').genericTerminalHelper;
@@ -20,9 +21,9 @@ if(operation === "list"){
 
 } else if (operation === "run") {
 
-}
 
-// console.log(operation);
-// console.log(direction);
-// console.log(migrationsLocation);
-// console.log(migrationsLocationPresent);
+} else {
+    console.log(
+        Chalk.red.bold("[ERROR] ") +
+        Chalk.red("The operation couldn't be detected. Try to use one of following: list or run"));
+}

@@ -37,12 +37,12 @@ class MigrationsListService {
 
     static display(migrations) {
         console.log(
-            Chalk.green("|     Date     ") +
-            Chalk.blueBright("| Attempt ") +
-            Chalk.white("|        Name        ") +
-            Chalk.magenta("|     Permissions     ") +
-            Chalk.yellow("| Files count ") +
-            Chalk.red("|   Size   ")
+            Chalk.green.bold('|     Date     ') +
+            Chalk.blueBright.bold("| Attempt ") +
+            Chalk.white.bold("|        Name        ") +
+            Chalk.magenta.bold("|     Permissions     ") +
+            Chalk.yellow.bold("| Files count ") +
+            Chalk.red.bold("|   Size   ")
         );
 
         for (let mi = 0; mi < migrations.length; mi++) {

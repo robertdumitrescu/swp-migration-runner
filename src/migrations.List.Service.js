@@ -8,15 +8,27 @@ const GenericFilesHelper = require('localpkg-generic-helper').genericFilesHelper
 
 class MigrationsListService {
 
+    /**
+     * @param path
+     * @returns {Promise.<Object>}
+     */
     static async getMigrations(path) {
 
         let migrations = await GenericFilesHelper.listFilesAndDetails(path);
         migrations = await MigrationsListService.computeNames(migrations);
         migrations = MigrationsListService.sortChronologically(migrations);
 
+        console.log(migrations);
+
         return migrations;
+
+
     }
 
+    /**
+     * @param {Object[]} migrations
+     * @returns {Promise.<Object>}
+     */
     static async computeNames(migrations) {
         for (let mi = 0; mi < migrations.length; mi++) {
 
@@ -31,10 +43,18 @@ class MigrationsListService {
         return migrations;
     }
 
+    /**
+     * @param {Object[]} migrations
+     * @returns {Object[]}
+     */
     static sortChronologically(migrations) {
         return Lodash.orderBy(migrations, ['migrationDateTimestamp', 'attempt'], ['asc', 'asc']);
     }
 
+    /**
+     * @param {Object[]} migrations
+     * @returns {void}
+     */
     static display(migrations) {
         console.log(
             Chalk.green.bold('|     Date     ') +

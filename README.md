@@ -40,6 +40,7 @@ Migrations listing in Linux Terminator
 ### Run migrations - Forward or Backwards - @TODO
 
 ## Nice to haves - will be implemented in the future
+- add cli parameters validation in order to have a consistent outcome
 - when displaying the migrations to check as well if the up.sql (or rollForward.sql) is present and to be displayed in a column as boolean
 - when displaying the migrations to check as well if the down.sql (or rollBack.sql) is present and to be displayed in a column as boolean
 - add support for the usual php projects migrations names (up.sql and down.sql)

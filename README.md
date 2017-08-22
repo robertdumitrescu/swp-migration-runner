@@ -63,7 +63,7 @@ Migrations run with errors in Linux Terminator
 - add cli parameters validation in order to have a consistent outcome
 - when displaying the migrations to check as well if the up.sql (or rollForward.sql) is present and to be displayed in a column as boolean
 - when displaying the migrations to check as well if the down.sql (or rollBack.sql) is present and to be displayed in a column as boolean
-- add support for the usual php projects migrations names (up.sql and down.sql)
+- ~~add support for the usual php projects migrations names (up.sql and down.sql)~~  [IMPLEMENTED]
 - add support for breakpoints in time. For example if I want to roll forward with migrations till a point in time to be able to specify the name of the migration where to stop
 - add automated tests to check name computing capabilities in list case
 

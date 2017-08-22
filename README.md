@@ -10,11 +10,13 @@ A proof of coding skills. A project that I'm commited to maintain till I get old
 
 ### Tested on:
 
-| Operating System        | Mysql version           | Node version  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| Operating System | Mysql version | Node version  |
+| ---------------- |:-------------:| -------------:|
+| Windows 10       | 5.6           | 6.9.0 LTS     |
+| Windows 10       | 5.7.19-0      | 8.3.0         |
+| Ubuntu 14.04     | 5.6           | 4.6.0 LTS     |
+| Ubuntu 16.04     | 5.6           | 8.1.0         |
+| Ubuntu 17.04     | 5.7.19-0      | 8.4.0         |
 
 ## CLI options
 ```

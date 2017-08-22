@@ -49,6 +49,16 @@ Migrations listing in Linux Terminator
 
 ### Run migrations - Forward or Backwards - @TODO
 
+Migrations run in JetBrains products
+![migrations-listing-jetbrains](/statics/images/migrations-run-jetbrains.png)
+
+Migrations run in Linux Terminator
+![migrations-listing-terminator](/statics/images/migrations-run-terminator.png)
+
+Migrations run with errors in Linux Terminator
+![migrations-listing-terminator](/statics/images/migrations-run-with-errors-terminator.png)
+
+
 ## Nice to haves - will be implemented in the future
 - add cli parameters validation in order to have a consistent outcome
 - when displaying the migrations to check as well if the up.sql (or rollForward.sql) is present and to be displayed in a column as boolean

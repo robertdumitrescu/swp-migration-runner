@@ -27,6 +27,10 @@ A proof of coding skills. A project that I'm commited to maintain till I get old
 - d - Direction. The direction in which the migrations will be ran.
     -- forward
     -- backward
+- h - Host. The database host
+- u - User. The database user
+- p - Password. The database user password
+- db - Database. The database against the migrations will be ran
 ```
 ## Features
 
@@ -35,10 +39,18 @@ A proof of coding skills. A project that I'm commited to maintain till I get old
 Using the following command syntax you can easily get all the migrations related to a project:
 
 ```
+node index.js o=OPERATION ml=MIGRATIONS_LOCATION
+```
+
+Example: 
+
+```
 node index.js o=list ml=/home/robert/gitRepos/PROJECT/sql/migrations/*
 ```
 
-And the output of that looks like this:
+The above example will list all migrations in `/home/robert/gitRepos/PROJECT/sql/migrations/*`
+
+#### And the output of that looks like this:
 
 Migrations listing in JetBrains products
 ![migrations-listing-jetbrains](/statics/images/migrations-listing-jetbrains.png)
@@ -48,6 +60,21 @@ Migrations listing in Linux Terminator
 
 
 ### Run migrations - Forward or Backwards - @TODO
+
+In order to run the migrations in any direction, you need to run the following command: 
+```
+node index.js o=OPERATION ml=MIGRATIONS_LOCATION direction=DIRECTION h=HOST u=USER p=PASSWORD db=DATABASE
+```
+
+Example:
+
+```
+node index.js o=run ml=/home/robert/gitRepos/PROJECT/sql/migrations/* direction=forward h=127.0.0.1 u=robert p=123456 db=randomDatabase
+```
+
+The above example will `run` all migrations in `/home/robert/gitRepos/PROJECT/sql/migrations/*` in `forward` direction (from the oldest migration to the newest migration) for the dbc connection based on `host`, `user`, `password` and `database` credentials
+
+#### And the output of that looks like this:
 
 Migrations run in JetBrains products
 ![migrations-listing-jetbrains](/statics/images/migrations-run-jetbrains.png)

@@ -8,6 +8,14 @@ A easy way to run migrations and visualize migrations written manually.
 ### What is not:
 A proof of coding skills. A project that I'm commited to maintain till I get old.
 
+### Tested on:
+
+| Operating System        | Mysql version           | Node version  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
 ## CLI options
 ```
 - o - Operation.

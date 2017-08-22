@@ -19,6 +19,7 @@
   "dependencies": {
     "chalk": "^2.1.0",
     "localpkg-generic-helper": "git+ssh://git@github.com/robertdumitrescu/localPKG-generic-helper.git",
+    "localpkg-sql-query-builder": "git+ssh://git@github.com/robertdumitrescu/localpkg-sql-query-builder.git",
     "lodash": "^4.17.4",
     "moment": "^2.18.1"
   },

@@ -26,16 +26,23 @@ if(operation === "list"){
 
 } else if (operation === "run") {
 
-    const migrationsLocation = GenericTerminalHelper.getTerminalArgumentValue("ml");
-    const direction = GenericTerminalHelper.getTerminalArgumentValue("d");
+    let cliParameters = {};
+    cliParameters.migrationsLocation = GenericTerminalHelper.getTerminalArgumentValue("ml");
+    cliParameters.direction = GenericTerminalHelper.getTerminalArgumentValue("d");
+    cliParameters.dbc = {};
+    cliParameters.dbc.host = GenericTerminalHelper.getTerminalArgumentValue("h");
+    cliParameters.dbc.user = GenericTerminalHelper.getTerminalArgumentValue("u");
+    cliParameters.dbc.password = GenericTerminalHelper.getTerminalArgumentValue("p");
+    cliParameters.dbc.db = GenericTerminalHelper.getTerminalArgumentValue("db");
 
-    MigrationsListService.getMigrations(migrationsLocation)
+    MigrationsListService.getMigrations(cliParameters.migrationsLocation)
         .then(function (migrations) {
-            MigrationsRunService.runMigrations(migrations, direction)
+            MigrationsRunService.runMigrations(migrations, cliParameters.direction, cliParameters.dbc)
         });
 
 } else {
     console.log(
         Chalk.red.bold("[ERROR] ") +
-        Chalk.red("The operation couldn't be detected. Try to use one of following: list or run"));
+        Chalk.red("The operation couldn't be detected. Try to use one of following: list or run")
+    );
 }

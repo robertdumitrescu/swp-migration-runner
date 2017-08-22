@@ -18,8 +18,6 @@ class MigrationsListService {
         migrations = await MigrationsListService.computeNames(migrations);
         migrations = MigrationsListService.sortChronologically(migrations);
 
-        console.log(migrations);
-
         return migrations;
 
 

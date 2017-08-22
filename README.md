@@ -66,6 +66,4 @@ Migrations run with errors in Linux Terminator
 - ~~add support for the usual php projects migrations names (up.sql and down.sql)~~  [IMPLEMENTED]
 - add support for breakpoints in time. For example if I want to roll forward with migrations till a point in time to be able to specify the name of the migration where to stop
 - add automated tests to check name computing capabilities in list case
-
-
-
+- add support for dbc config file for secure login

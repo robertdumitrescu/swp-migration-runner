@@ -4,7 +4,7 @@ const Moment = require('moment');
 const Lodash = require('lodash');
 const Chalk = require('chalk');
 
-const GenericFilesHelper = require('localpkg-generic-helper').genericFilesHelper;
+const GenericFilesHelper = require('localpkg-generic-helper').GenericFilesHelper;
 
 class MigrationsListService {
 

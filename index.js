@@ -4,7 +4,7 @@ const FileSystem = require('fs');
 const Chalk = require('chalk');
 
 /** localpkg packages */
-const GenericTerminalHelper = require('localpkg-generic-helper').genericTerminalHelper;
+const GenericTerminalHelper = require('localpkg-generic-helper').GenericTerminalHelper;
 
 /** Service */
 const MigrationsListService = require('./src/migrations.List.Service');

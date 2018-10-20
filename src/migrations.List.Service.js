@@ -30,7 +30,7 @@ class MigrationsListService {
     static async computeNames(migrations) {
         for (let mi = 0; mi < migrations.length; mi++) {
 
-            let nameComponents = migrations[mi].name.split("_");
+            let nameComponents = migrations[mi].name.split('_');
             let migrationDate = Moment(nameComponents[0], 'DD-MM-YYYY');
 
             migrations[mi].migrationDate = migrationDate.format('DD-MM-YYYY');
@@ -55,22 +55,22 @@ class MigrationsListService {
      */
     static display(migrations) {
         console.log(
-            Chalk.green.bold('|     Date     ') +
-            Chalk.blueBright.bold("| Attempt ") +
-            Chalk.white.bold("|        Name        ") +
-            Chalk.magenta.bold("|     Permissions     ") +
-            Chalk.yellow.bold("| Files count ") +
-            Chalk.red.bold("|   Size   ")
+            Chalk.green.bold('|     Date     ')
+            + Chalk.blueBright.bold('| Attempt ')
+            + Chalk.white.bold('|        Name        ')
+            + Chalk.magenta.bold('|     Permissions     ')
+            + Chalk.yellow.bold('| Files count ')
+            + Chalk.red.bold('|   Size   ')
         );
 
         for (let mi = 0; mi < migrations.length; mi++) {
             console.log(
-                Chalk.green('|  ' + migrations[mi].migrationDate + '  ') +
-                Chalk.blueBright('|    ' + migrations[mi].attempt + '    ') +
-                Chalk.white('|   ' + migrations[mi].name + '   ') +
-                Chalk.magenta('|     ' + migrations[mi].permission + '      ') +
-                Chalk.yellow('|       ' + migrations[mi].filesCount + '     ') +
-                Chalk.red('|  ' + migrations[mi].readableSize + ' ')
+                Chalk.green('|  ' + migrations[mi].migrationDate + '  ')
+                + Chalk.blueBright('|    ' + migrations[mi].attempt + '    ')
+                + Chalk.white('|   ' + migrations[mi].name + '   ')
+                + Chalk.magenta('|     ' + migrations[mi].permission + '      ')
+                + Chalk.yellow('|       ' + migrations[mi].filesCount + '     ')
+                + Chalk.red('|  ' + migrations[mi].readableSize + ' ')
             );
         }
     }

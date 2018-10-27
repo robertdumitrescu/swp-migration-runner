@@ -4,7 +4,7 @@ const Moment = require('moment');
 const Lodash = require('lodash');
 const Chalk = require('chalk');
 
-const GenericFilesHelper = require('localpkg-generic-helper').GenericFilesHelper;
+const FilesHelper = require('localpkg-core').FilesHelper;
 
 class MigrationsListService {
 
@@ -14,7 +14,7 @@ class MigrationsListService {
      */
     static async getMigrations(path) {
 
-        let migrations = await GenericFilesHelper.listFilesAndDetails(path);
+        let migrations = await FilesHelper.listFilesAndDetails(path);
         migrations = await MigrationsListService.computeNames(migrations);
         migrations = MigrationsListService.sortChronologically(migrations);
 

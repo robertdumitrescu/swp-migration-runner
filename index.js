@@ -4,19 +4,19 @@ const FileSystem = require('fs');
 const Chalk = require('chalk');
 
 /** localpkg packages */
-const GenericTerminalHelper = require('localpkg-generic-helper').GenericTerminalHelper;
+const TerminalHelper = require('localpkg-core').TerminalHelper;
 
 /** Service */
 const MigrationsListService = require('./src/migrations.List.Service');
 const MigrationsRunService = require('./src/migrations.Run.Service');
 
 
-const operation = GenericTerminalHelper.getTerminalArgumentValue('o');
+const operation = TerminalHelper.getTerminalArgumentValue('o');
 
 
 if (operation === 'list') {
 
-    const migrationsLocation = GenericTerminalHelper.getTerminalArgumentValue('ml');
+    const migrationsLocation = TerminalHelper.getTerminalArgumentValue('ml');
 
     MigrationsListService.getMigrations(migrationsLocation)
         .then((migrations) => {
@@ -27,13 +27,13 @@ if (operation === 'list') {
 } else if (operation === 'run') {
 
     let cliParameters = {};
-    cliParameters.migrationsLocation = GenericTerminalHelper.getTerminalArgumentValue('ml');
-    cliParameters.direction = GenericTerminalHelper.getTerminalArgumentValue('d');
+    cliParameters.migrationsLocation = TerminalHelper.getTerminalArgumentValue('ml');
+    cliParameters.direction = TerminalHelper.getTerminalArgumentValue('d');
     cliParameters.dbc = {};
-    cliParameters.dbc.host = GenericTerminalHelper.getTerminalArgumentValue('h');
-    cliParameters.dbc.user = GenericTerminalHelper.getTerminalArgumentValue('u');
-    cliParameters.dbc.password = GenericTerminalHelper.getTerminalArgumentValue('p');
-    cliParameters.dbc.db = GenericTerminalHelper.getTerminalArgumentValue('db');
+    cliParameters.dbc.host = TerminalHelper.getTerminalArgumentValue('h');
+    cliParameters.dbc.user = TerminalHelper.getTerminalArgumentValue('u');
+    cliParameters.dbc.password = TerminalHelper.getTerminalArgumentValue('p');
+    cliParameters.dbc.db = TerminalHelper.getTerminalArgumentValue('db');
 
     MigrationsListService.getMigrations(cliParameters.migrationsLocation)
         .then((migrations) => {
